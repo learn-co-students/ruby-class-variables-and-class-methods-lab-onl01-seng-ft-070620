@@ -1,3 +1,5 @@
+## REWORK
+
 ## 1. Create a Song class
 ## 2. Track the number of songs
 ##      -Set @@count = 0
@@ -10,7 +12,7 @@
 ##      -Add artist to @@artists array when a
 ##      -song is initialized.
 ##      -Create a #self.artists class reader method
-##       that removes deuplicates.
+##       that removes duplicates.
 ## 4. Create a class method that returns an array
 ##      of all genres of existing songs
 ##      -Set @@genres = []
@@ -35,18 +37,19 @@ class Song
 
     attr_accessor :name, :artist, :genre
 
-    @@count = 0
-    @@genres = []
     @@artists = []
+    @@genres = []
+    @@count = 0
 
     def initialize(name, artist, genre)
         @name = name
         @artist = artist
-        @genre = genre
+        @genre = genre 
+        @@artists << artist
         @@count += 1
         @@genres << genre 
-        @@artists << artist 
-    end 
+    end
+
 
     def self.count
         @@count
@@ -61,29 +64,28 @@ class Song
     end 
 
     def self.genre_count 
-        genre_hash = {}
+        hash = {}
         @@genres.each do |genre|
-            if genre_hash[genre]
-                genre_hash[genre] += 1
-            else
-                genre_hash[genre] = 1
-            end 
-        end 
-        genre_hash
+            if hash[genre]
+                hash[genre] += 1
+            else 
+                hash[genre] = 1
+            end
+        end
+        hash
     end
 
-    def self.artist_count 
-        artist_hash = {}
+    def self.artist_count
+        hash = {}
         @@artists.each do |artist|
-            if artist_hash[artist]
-                artist_hash[artist] += 1
+            if hash[artist]
+                hash[artist] += 1
             else 
-                artist_hash[artist] = 1
-            end 
-        end 
-        artist_hash
-    end 
-    
+                hash[artist] = 1
+            end
+        end
+        hash
+    end
 end 
 
 
