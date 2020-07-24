@@ -3,9 +3,9 @@ class Song
 
   # Class variables
 
-  @@count = 0
-  @@artists = []
-  @@genres = []
+  # # @@count = 0
+  # @@artists = []
+  # @@genres = []
 
   # Instance Methods
 
