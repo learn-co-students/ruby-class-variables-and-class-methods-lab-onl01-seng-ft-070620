@@ -3,7 +3,7 @@ class Song
 
   # Class variables
 
-  # @@count = 0
+  @@count = 0
   @@artists = []
   @@genres = []
 
